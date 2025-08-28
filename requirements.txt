@@ -1,0 +1,11 @@
+numpy
+scipy
+librosa
+soundfile
+webrtcvad
+resemblyzer
+scikit-learn
+flask
+werkzeug
+matplotlib
+python-dotenv

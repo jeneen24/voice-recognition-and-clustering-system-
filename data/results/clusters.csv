@@ -1,0 +1,11 @@
+file,emb_path,cluster
+0_lucas_49_seg0.wav,data/embeddings/0_lucas_49_seg0.npy,0
+0_lucas_5_seg0.wav,data/embeddings/0_lucas_5_seg0.npy,0
+1_jackson_41_seg0.wav,data/embeddings/1_jackson_41_seg0.npy,1
+1_jackson_38_seg0.wav,data/embeddings/1_jackson_38_seg0.npy,1
+0_lucas_47_seg0.wav,data/embeddings/0_lucas_47_seg0.npy,0
+0_lucas_48_seg0.wav,data/embeddings/0_lucas_48_seg0.npy,0
+1_jackson_40_seg0.wav,data/embeddings/1_jackson_40_seg0.npy,1
+1_jackson_39_seg0.wav,data/embeddings/1_jackson_39_seg0.npy,1
+1_jackson_4_seg0.wav,data/embeddings/1_jackson_4_seg0.npy,2
+0_lucas_46_seg0.wav,data/embeddings/0_lucas_46_seg0.npy,0

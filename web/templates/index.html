@@ -1,0 +1,62 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Voice Clustering Results</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>🎙️ Voice Clustering - Results</h1>
+    <button id="refresh-btn">🔄 Refresh Results</button>
+  </header>
+  
+  <main>
+    <section>
+      <canvas id="clusterChart"></canvas>
+    </section>
+    
+    <div id="clusters">
+      {% for cluster, items in clusters.items() %}
+        <section class="cluster">
+          <h2>Cluster {{ cluster }} ({{ items|length }} segments)</h2>
+          <ul>
+            {% for item in items %}
+              <li>
+                <strong>{{ item.file }}</strong><br/>
+                <audio controls>
+                  <source src="{{ url_for('static', filename=item.relpath) }}" type="audio/wav">
+                </audio>
+              </li>
+            {% endfor %}
+          </ul>
+        </section>
+      {% endfor %}
+    </div>
+  </main>
+
+  <script>
+    // Prepare data for chart
+    const clusterData = {{ cluster_counts|tojson }};
+    const ctx = document.getElementById('clusterChart');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: Object.keys(clusterData),
+        datasets: [{
+          label: 'Segments per Cluster',
+          data: Object.values(clusterData),
+          borderWidth: 1
+        }]
+      }
+    });
+
+    // Refresh button
+    document.getElementById("refresh-btn").addEventListener("click", () => {
+      window.location.reload();
+    });
+  </script>
+</body>
+</html>
